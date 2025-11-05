@@ -3,7 +3,8 @@
 This repository contains the official implementation of the research paper
 “Teacher-Guided One-Shot Pruning via Context-Aware Knowledge Distillation.”
 
-Our work introduces a teacher-guided one-shot pruning framework that integrates Knowledge Distillation (KD) directly into the pruning process, enabling high sparsity with minimal accuracy loss. By leveraging Context-Aware KL Divergence (CA-KLD) and gradient-based importance scoring, the method identifies and retains parameters critical for both task performance and knowledge transfer.
+Our work introduces a teacher-guided one-shot pruning framework that integrates Knowledge Distillation (KD) directly into the pruning process, enabling high sparsity with minimal accuracy loss.
+By leveraging Context-Aware KL Divergence (CA-KLD) and gradient-based importance scoring, the method identifies and retains parameters critical for both task performance and knowledge transfer.
 
 🚀 Key Features
 
@@ -14,3 +15,13 @@ One-Shot Global Pruning: Achieves extreme compression without iterative prune–
 CA-KLD with Logit Normalization: Stabilizes gradients for robust distillation and pruning.
 
 Sparsity-Aware Retraining: Maintains a fixed pruning mask to ensure consistent sparsity.
+
+🧩 Method Overview
+
+Knowledge Distillation (KD): Student learns from a pretrained teacher using CA-KLD with logit normalization.
+
+Gradient-Based Importance Scoring: Computes importance using joint gradients from KD and cross-entropy losses.
+
+One-Shot Pruning: Applies a single global threshold to remove low-importance weights.
+
+Sparsity-Aware Retraining: Fine-tunes the pruned model with or without KD under fixed sparsity.
